@@ -5,8 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
   var secondButton = document.getElementById('second-button');
   var step7 = document.getElementById('step7')
   var thirdButton = document.getElementById('third-button');
-  var forthButton = document.getElementById('forth-button');
   var step8 = document.getElementById('step8');
+  var forthButton = document.getElementById('forth-button');
+  var step9List = document.getElementById('car');
+  var fifthButton = document.getElementById('fifth-button');
 
   firstButton.addEventListener('click', function() {
     $.ajax({
@@ -50,7 +52,16 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(data);
       step8.appendChild(document.createElement('p')).innerText = data;
     })
+  })
 
+  fifthButton.addEventListener('click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      dataType: 'HTML'
+    }).done(function(data) {
+      step9List.innerHTML += data
+    })
   })
 
 
