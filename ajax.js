@@ -1,12 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  var getButton = document.getElementById('get-button');
+  var firstButton = document.getElementById('first-button');
+  var secondButton = document.getElementById('second-button');
 
-  getButton.addEventListener('click', function() {
+  firstButton.addEventListener('click', function() {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/',
       method: 'GET',
     });
+  })
+
+  secondButton.addEventListener('click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/ping',
+      method: 'GET',
+    })
   })
 
 
