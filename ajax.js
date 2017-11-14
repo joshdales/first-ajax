@@ -15,11 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/pong',
       method: 'GET',
+    }).always(function() {
+      step3456.appendChild(document.createElement('p')).innerText = 'Hey the request has finsihed';
     }).done(function(data) {
       step3456.appendChild(document.createElement('p')).innerText = data;
     }).fail(function() {
       step3456.appendChild(document.createElement('p')).innerText = "I'm very sorry but something has gone wrong";
-
     })
   })
 
