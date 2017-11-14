@@ -13,10 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   secondButton.addEventListener('click', function() {
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/ping',
+      url: 'http://first-ajax-api.herokuapp.com/pong',
       method: 'GET',
     }).done(function(data) {
       step3456.appendChild(document.createElement('p')).innerText = data;
+    }).fail(function() {
+      step3456.appendChild(document.createElement('p')).innerText = "I'm very sorry but something has gone wrong";
+
     })
   })
 
