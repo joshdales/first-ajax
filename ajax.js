@@ -45,7 +45,10 @@ document.addEventListener("DOMContentLoaded", function() {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/time',
       method: 'GET',
-      data: 'text'
+      data: {timezone: 'Asia/Kolkata'}
+    }).done(function(data) {
+      console.log(data);
+      step8.appendChild(document.createElement('p')).innerText = data;
     })
 
   })
