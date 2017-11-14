@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var firstButton = document.getElementById('first-button');
   var step3456 = document.getElementById('step3456');
   var secondButton = document.getElementById('second-button');
+  var step7 = document.getElementById('step7')
+  var thirdButton = document.getElementById('third-button');
 
   firstButton.addEventListener('click', function() {
     $.ajax({
@@ -24,6 +26,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }).fail(function() {
       console.log('There was an error that prevented the request from being made successfully');
       step3456.appendChild(document.createElement('p')).innerText = "I'm very sorry but something has gone wrong";
+    })
+  })
+
+  thirdButton.addEventListener('click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/count',
+      method: 'GET',
+      dataType: 'text'
+    }).done(function(data) {
+      step7.appendChild(document.createElement('p')).innerText = data;
     })
   })
 
